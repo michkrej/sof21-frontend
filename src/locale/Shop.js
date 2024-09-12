@@ -19,7 +19,15 @@ export default {
       data_handling1: "Alla transaktioner på denna sida hanteras av ",
       data_handling2: " för att garantera din säkerhet, vi hanterar själva inga kortuppgifter.",
       no_items: "Du har ingenting i din varukorg",
-      sold_out: "Slutsåld"
+      sold_out: "Slutsåld",
+      card_error: {
+        title: "Fel kortuppgifter",
+        message: "Försök igen och dubbelkolla att du fyllt i alla betalningsuppgifter korrekt, om problemet kvarstår, kontakta support@sof.lintek.liu.se",
+      },
+      invalid_request_error: {
+        title: "Autentisieringsfel",
+        message: "Lyckades inte autentisera ditt kort, försök igen."
+      }
     }
   },
 
@@ -43,7 +51,15 @@ export default {
       data_handling2: " to guarantee your security, we never process any card details.",
       addPopupSnack: "You added an item to your cart",
       no_items: "There's no items in your cart",
-      sold_out: "Sold out"
+      sold_out: "Sold out",
+      card_error: {
+        title: "Wrong card details",
+        message: "Verify that all payment details you have entered is correct and then try again, if it still fails, contact support@sof.lintek.liu.se",
+      },
+      invalid_request_error: {
+        title: "Authentication error",
+        message: "Couldn't authenticate your card, please try again"
+      }
     }
   }
 };

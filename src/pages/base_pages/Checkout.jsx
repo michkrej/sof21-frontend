@@ -10,14 +10,16 @@ import { Grid, GridCell, GridInner } from '@rmwc/grid';
 
 import { withRouter, Redirect } from 'react-router-dom';
 
-import {Elements, StripeProvider} from 'react-stripe-elements';
+import {Elements} from '@stripe/react-stripe-js';
+import {loadStripe} from '@stripe/stripe-js';
 import CheckoutForm  from '../../components/shop/CheckoutForm';
 import CheckoutItems from '../../components/shop/CheckoutItems';
 import Header from '../../components/page_components/NiceHeader';
-import { stripePublicKey, frontEndPath, authUrl } from '../../constants';
+import { stripePublicKey } from '../../constants';
 
 import { connect } from 'react-redux';
 
+const stripePromise = loadStripe(stripePublicKey)
 class Shop extends Component{
   constructor(props) {
     super(props);
@@ -70,13 +72,11 @@ class Shop extends Component{
               * https://stripe.com/docs/stripe-js/react
               */
             }
-            <StripeProvider apiKey={stripePublicKey}>
+            <Elements stripe={stripePromise}>
               <GridCell desktop='12' tablet='8' phone='4' className='stripe example'>
-                <Elements>
                   <CheckoutForm />
-                </Elements>
               </GridCell>
-            </StripeProvider>
+            </Elements>
           </GridInner>
         </Grid>
       </React.Fragment>
